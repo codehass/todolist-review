@@ -117,9 +117,7 @@ export default class MainFunction {
               const idIput = 'TEST';
               const idSelect = event.currentTarget.id;
               let idItem;
-
               !idSelect.includes('TEST') ? idItem = idIput.concat(idSelect) : idItem = idSelect;
-
               document.getElementById(idItem).setAttribute('readonly', 'readonly');
               this.inputUpdate(document.getElementById(idItem).value, (Number(idItem.replace('TEST', '')) - 1));
             }
@@ -133,15 +131,7 @@ export default class MainFunction {
           const idIput = 'TEST';
           const idSelect = event.currentTarget.id;
           let idItem;
-
-          !idSelect.includes('TEST') ? idItem = idIput.concat(idSelect): idItem = idSelect;
-
-          // if (!idSelect.includes('TEST')) {
-          //   idItem = idIput.concat(idSelect);
-          // } else {
-          //   idItem = idSelect;
-          // }
-
+          !idSelect.includes('TEST') ? idItem = idIput.concat(idSelect) : idItem = idSelect;
           
           if (previousList !== null) {
             previousList.getElementById(idItem).removeAttribute('readonly');
