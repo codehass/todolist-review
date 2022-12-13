@@ -4,12 +4,7 @@ export default class MainFunction {
   // get the to do list items from storage
     static getListFromStorage = () => {
       let taskList;
-
-      if (JSON.parse(localStorage.getItem('listData')) === null) {
-        taskList = [];
-      } else {
-        taskList = JSON.parse(localStorage.getItem('listData'));
-      }
+      JSON.parse(localStorage.getItem('listData')) === null ? taskList = []:taskList = JSON.parse(localStorage.getItem('listData'));
       return taskList;
     };
 
@@ -57,11 +52,7 @@ export default class MainFunction {
         document.querySelectorAll('.btn-remove').forEach((button) => button.addEventListener('click', (event) => {
           event.preventDefault();
           let id;
-          if (button.id > 0) {
-            id = button.id - 1;
-          } else {
-            id = 0;
-          }
+          button.id > 0 ? id = button.id - 1 : id = 0;
           this.deleteListItem(id);
           this.genList();
         }));
@@ -127,11 +118,7 @@ export default class MainFunction {
               const idSelect = event.currentTarget.id;
               let idItem;
 
-              if (!idSelect.includes('TEST')) {
-                idItem = idIput.concat(idSelect);
-              } else {
-                idItem = idSelect;
-              }
+              !idSelect.includes('TEST') ? idItem = idIput.concat(idSelect) : idItem = idSelect;
 
               document.getElementById(idItem).setAttribute('readonly', 'readonly');
               this.inputUpdate(document.getElementById(idItem).value, (Number(idItem.replace('TEST', '')) - 1));
@@ -147,12 +134,15 @@ export default class MainFunction {
           const idSelect = event.currentTarget.id;
           let idItem;
 
-          if (!idSelect.includes('TEST')) {
-            idItem = idIput.concat(idSelect);
-          } else {
-            idItem = idSelect;
-          }
+          !idSelect.includes('TEST') ? idItem = idIput.concat(idSelect): idItem = idSelect;
 
+          // if (!idSelect.includes('TEST')) {
+          //   idItem = idIput.concat(idSelect);
+          // } else {
+          //   idItem = idSelect;
+          // }
+
+          
           if (previousList !== null) {
             previousList.getElementById(idItem).removeAttribute('readonly');
           }

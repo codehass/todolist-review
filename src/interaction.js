@@ -12,17 +12,9 @@ export default class Interact {
       document.querySelectorAll('.check').forEach((checkbox) => checkbox.addEventListener('change', () => {
         let checkstat;
         let id;
-        if (checkbox.id > 0) {
-          id = checkbox.id - 1;
-        } else {
-          id = 0;
-        }
-
-        if (checkbox.checked === true) {
-          checkstat = true;
-        } else if (checkbox.checked !== true) {
-          checkstat = false;
-        }
+        checkbox.id > 0 ? id = checkbox.id - 1 : id = 0;
+        
+        checkbox.checked === true ? checkstat = true : checkstat = false;
 
         this.changeCompletedToDo(checkstat, id);
       }))
