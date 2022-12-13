@@ -1,6 +1,6 @@
 import Lists from './listClass.js';
 
-export default class MainFunc {
+export default class MainFunction {
   // get the to do list items from storage
     static getListFromStorage = () => {
       let taskList;

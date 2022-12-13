@@ -1,6 +1,6 @@
 import './style.css';
 
-import MainFunc from './method.js';
+import MainFunction from './method.js';
 import Interact from './interaction.js';
 
 const userInput = document.querySelector('.add-item');
@@ -8,7 +8,7 @@ const addActivity = document.querySelector('.add-activity');
 
 userInput.addEventListener('submit', (e) => {
   e.preventDefault();
-  MainFunc.addTodo(addActivity.value);
+  MainFunction.addTodo(addActivity.value);
   addActivity.value = '';
 });
 
@@ -21,4 +21,4 @@ window.addEventListener('load', () => {
   Interact.checkStatusEvent();
 });
 
-MainFunc.genList();
+MainFunction.genList();

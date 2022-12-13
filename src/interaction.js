@@ -1,11 +1,11 @@
-import MainFunc from './method.js';
+import MainFunction from './method.js';
 
 export default class Interact {
     static changeCompletedToDo = (checkstat, id) => {
-      const taskList = MainFunc.getListFromStorage();
+      const taskList = MainFunction.getListFromStorage();
       taskList[id].completed = checkstat;
-      MainFunc.addToStore(taskList);
-      MainFunc.genList();
+      MainFunction.addToStore(taskList);
+      MainFunction.genList();
     }
 
     static checkStatusEvent = () => (
@@ -29,11 +29,11 @@ export default class Interact {
     )
 
     static clearCompleted = () => {
-      let taskList = MainFunc.getListFromStorage();
+      let taskList = MainFunction.getListFromStorage();
 
       taskList = taskList.filter((item) => item.completed !== true);
-      MainFunc.indexNew(taskList);
-      MainFunc.addToStore(taskList);
-      MainFunc.genList();
+      MainFunction.indexNew(taskList);
+      MainFunction.addToStore(taskList);
+      MainFunction.genList();
     }
 }
